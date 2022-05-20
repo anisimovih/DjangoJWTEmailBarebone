@@ -1,0 +1,9 @@
+.idea
+db.sqlite3
+__pycache__
+JWTBarebone/settings/local_*.py
+JWTBarebone/logs/*
+.venv*/*
+.env.local*
+.DS_Store
+
