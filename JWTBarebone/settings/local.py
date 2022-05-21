@@ -12,12 +12,3 @@ DATABASES = {
         'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
-
-SIMPLE_JWT.update({
-    'SIGNING_KEY': os.environ.get('SIGNING_KEY', '')
-        .replace(" ", "\n", sum(c.isspace() for c in os.environ.get('SIGNING_KEY', '')) - 3)
-        .replace("\n", " ", 3),
-    'VERIFYING_KEY': os.environ.get('VERIFYING_KEY', '')
-        .replace(" ", "\n", sum(c.isspace() for c in os.environ.get('VERIFYING_KEY', '')) - 2)
-        .replace("\n", " ", 2),
-})

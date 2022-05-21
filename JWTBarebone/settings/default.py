@@ -99,12 +99,6 @@ AUTHENTICATION_BACKENDS = [
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-SIMPLE_JWT = {
-    'ROTATE_REFRESH_TOKENS': True,
-    'ALGORITHM': 'RS256',
-    'LEEWAY': 10,
-}
-
 LANGUAGE_CODE = 'en-us'
 
 TIME_ZONE = 'UTC'
@@ -160,4 +154,17 @@ SWAGGER_SETTINGS = {
             'in': 'header'
         }
     }
+}
+
+
+SIMPLE_JWT = {
+    'ROTATE_REFRESH_TOKENS': True,
+    'ALGORITHM': 'RS256',
+    'LEEWAY': 10,
+    'SIGNING_KEY': os.environ.get('SIGNING_KEY', '')
+        .replace(" ", "\n", sum(c.isspace() for c in os.environ.get('SIGNING_KEY', '')) - 3)
+        .replace("\n", " ", 3),
+    'VERIFYING_KEY': os.environ.get('VERIFYING_KEY', '')
+        .replace(" ", "\n", sum(c.isspace() for c in os.environ.get('VERIFYING_KEY', '')) - 2)
+        .replace("\n", " ", 2),
 }
