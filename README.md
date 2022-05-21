@@ -47,6 +47,12 @@ python manage.py createsuperuser
 python manage.py runserver 127.0.0.1:8000
 ```
 
+9. Run tests to make sure everything is installed correctly:
+```
+./manage.py test
+./flake-test.sh
+```
+
 
 ## Using application
 
