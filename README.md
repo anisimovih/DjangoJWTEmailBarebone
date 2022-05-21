@@ -1,4 +1,4 @@
-# Django JWT Barebone for email + password authorisation
+# Django JWT Barebone for email + password authorization
 
 ## Installing application
 
@@ -52,11 +52,11 @@ python manage.py runserver 127.0.0.1:8000
 
 1. Go to url: http://127.0.0.1:8000/swagger/
 
-2. Try using a health_private endpoint. Your request must be denied because you are not authorized::
+2. Try using the `/api/health_private/` endpoint. Your request must be denied because you are not authorized:
 
     ![Request rejected](Images/request_rejected.png)
 
-3. Use your email and password in api/auth/token/ endpoint to get a JWT access token:
+3. Use your email and password in `/api/auth/token/` endpoint to get a JWT access token:
 
     ![Get_access_token](Images/get_token.png)
 
@@ -64,6 +64,6 @@ python manage.py runserver 127.0.0.1:8000
 
     ![Get_access_token](Images/use_token.png)
 
-5. Try using the health_private endpoint again. Now you should get a response:
+5. Try using the `/api/health_private/` endpoint again. Now you should get a response:
 
     ![Get_access_token](Images/request_accepted.png)
