@@ -1,4 +1,5 @@
-"""JWTBarebone URL Configuration"""
+"""JWTBarebone URL Configuration."""
+
 import debug_toolbar
 from drf_yasg import openapi
 from drf_yasg.views import get_schema_view
@@ -6,11 +7,10 @@ from drf_yasg.views import get_schema_view
 from django.contrib import admin
 from django.urls import path, include, re_path
 from rest_framework import permissions
-from rest_framework_simplejwt.views import TokenRefreshView
+from rest_framework_simplejwt.views import TokenRefreshView, TokenVerifyView
 
 from JWTBarebone.auth.views import (
     EmailTokenObtainPairView,
-    TokenVerifyView,
     PublicApiHealthView,
     PrivateApiHealthView
 )
@@ -18,12 +18,16 @@ from JWTBarebone.auth.views import (
 JWTBarebone_info = openapi.Info(
     title='JWT Barebone API',
     default_version='v1',
-    license=openapi.License(name='Apache 2.0')
+    description='JWT Barebone API'
+                '\n\n To authorize in swagger, get a token through the */auth/token/* endpoint and '
+                '\n insert it into the authorization form in the "Bearer *token_value*" format.',
+    license=openapi.License(name='MIT License')
 )
 schema_view = get_schema_view(
     JWTBarebone_info,
     permission_classes=(permissions.AllowAny,),
     public=True,
+
 )
 
 urlpatterns = [

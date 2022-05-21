@@ -1,3 +1,5 @@
+"""Test auth API."""
+
 from django.contrib.auth import get_user_model
 from django.test import TestCase
 from django.urls import reverse
@@ -6,8 +8,10 @@ from rest_framework.test import APIClient
 
 
 class UserAPICase(TestCase):
+    """Class for testing auth API."""
 
     def setUp(self):
+        """Set up objects for test auth API."""
         self.client = APIClient()
         self.email = 'test@extend.tv'
         self.password = 'test'
